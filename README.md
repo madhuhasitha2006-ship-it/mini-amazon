@@ -26,3 +26,4 @@ Agree on product/cart data structures before splitting work. Create a feature br
 ## Current limitations
 This is a frontend-only demo. Orders are not saved to a database, user authentication is not implemented, and no real payment is collected. Do not enter sensitive personal or payment information.
 # mini-amazon
+# shas
