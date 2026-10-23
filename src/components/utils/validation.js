@@ -1,0 +1,48 @@
+
+export function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+}
+
+export function validateLogin(values) {
+  const errors = {};
+
+  if (!values.email.trim()) {
+    errors.email = 'Email is required';
+  } else if (!validateEmail(values.email)) {
+    errors.email = 'Enter a valid email address';
+  }
+
+  if (!values.password) {
+    errors.password = 'Password is required';
+  }
+
+  return errors;
+}
+
+export function validateRegistration(values) {
+  const errors = {};
+
+  if (!values.name.trim()) {
+    errors.name = 'Name is required';
+  }
+
+  if (!values.email.trim()) {
+    errors.email = 'Email is required';
+  } else if (!validateEmail(values.email)) {
+    errors.email = 'Enter a valid email address';
+  }
+
+  if (!values.password) {
+    errors.password = 'Password is required';
+  } else if (values.password.length < 8) {
+    errors.password = 'Password must be at least 8 characters';
+  }
+
+  if (!values.confirmPassword) {
+    errors.confirmPassword = 'Please confirm your password';
+  } else if (values.password !== values.confirmPassword) {
+    errors.confirmPassword = 'Passwords do not match';
+  }
+
+  return errors;
+}
